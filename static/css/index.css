@@ -788,3 +788,36 @@ html {
 #table-of-contents li {
   margin-bottom: 0.5rem;
 }
+
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.results-table th,
+.results-table td {
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.results-table th {
+  background: var(--background-accent);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.results-table tr:last-child td {
+  border-bottom: none;
+}
+
+.results-table .ours {
+  background: #eff6ff;
+  font-weight: 600;
+}
