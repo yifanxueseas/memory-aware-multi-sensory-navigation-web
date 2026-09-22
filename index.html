@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Anonymous review meta: no identifying authors, labs, or URLs -->
+  <meta name="title"
+    content="Memory-Aware Multi-Sensor Perception for Efficient and Safe Navigation in Dynamic Environments">
+  <meta name="description"
+    content="A memory-aware multi-sensor navigation framework integrating LiDAR and RGB perception, online distance-field representation learning, and stage-adaptive MCBF-QP for efficient and safe mapless navigation in dynamic environments.">
+  <meta name="keywords"
+    content="multi-sensor perception, memory-aware navigation, control barrier functions, MCBF-QP, distance field, dynamic obstacles, mapless navigation, LiDAR, RGB">
+  <meta name="author" content="Anonymous Authors">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="language" content="English">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Minimal citation tags (anonymous) -->
+  <meta name="citation_title"
+    content="Memory-Aware Multi-Sensor Perception for Efficient and Safe Navigation in Dynamic Environments">
+  <meta name="citation_author" content="Anonymous Authors">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="Under Review">
+
+  <title>Memory-Aware Multi-Sensor Perception for Efficient and Safe Navigation in Dynamic Environments | Anonymous
+    Authors</title>
+
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
+  <link rel="apple-touch-icon" href="static/images/favicon.svg">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                Memory-Aware Multi-Sensor Perception for Efficient and Safe Navigation in Dynamic Environments
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Jingshuo Li, Yifan Xue, Yifei Li, Shubhodeep Shiv Aditya, and Nadia
+                  Figueroa</span>
+              </div>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Under Review</span>
+              </div>
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="#arxiv" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark arxiv-placeholder"
+                      title="Arxiv release coming soon" onclick="return false;">
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#demo" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fas fa-play"></i></span>
+                      <span>Video</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#code" class="external-link button is-normal is-rounded is-dark code-placeholder"
+                      title="Anonymous code release coming soon" onclick="return false;">
+                      <span class="icon"><i class="fab fa-github"></i></span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="#bibtex" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fas fa-quote-right"></i></span>
+                      <span>BibTeX</span>
+                    </a>
+                  </span>
+                </div>
+                <p id="code" class="is-size-7 has-text-grey" style="margin-top:0.75rem;">
+                  Anonymous code release coming soon.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaser / overview figure -->
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <figure class="has-text-centered">
+            <img src="static/images/fig1_overview.png"
+              alt="Overview of the memory-aware multi-sensory perception and navigation framework" loading="lazy"
+              class="paper-figure"
+              style="width:100%; max-width:960px; max-height:520px; height:auto; object-fit:contain;" />
+            <figcaption class="figure-caption">
+              <strong>Figure 1.</strong>
+              Overview of the proposed memory-aware multi-sensory perception and navigation framework, integrating
+              onboard state estimation, dynamic obstacle detection, online environment representation learning, and
+              stage-adaptive MCBF control for safe and live navigation in previously unmapped environments.
+            </figcaption>
+          </figure>
+          <div class="has-text-centered" style="margin-top:1.25rem;" id="demo">
+            <video controls playsinline preload="metadata"
+              style="width:100%; max-width:960px; border-radius:8px; background:#111;" poster="">
+              <source src="static/videos/teaser.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p class="figure-caption" style="margin-top:0.75rem;">
+              <strong>Video.</strong>
+              Demonstration of the memory-aware multi-sensor navigation framework: simulation comparisons
+              against baselines in hospital/warehouse scenes, plus real-world indoor and outdoor hardware runs
+              with dynamic pedestrians.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOC -->
+    <div class="container is-max-desktop">
+      <div class="toc-box" id="table-of-contents">
+        <h2 class="title is-4">Table of Contents</h2>
+        <ul>
+          <li><a href="#demo">Demo Video</a></li>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#contributions">Contributions</a></li>
+          <li><a href="#method">Method Overview</a></li>
+          <li><a href="#simulation">Simulation Experiments</a></li>
+          <li><a href="#results">Results Summary</a></li>
+          <li><a href="#hardware">Hardware Experiments</a></li>
+          <li><a href="#bibtex">BibTeX</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Abstract -->
+    <section class="section" id="abstract">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Autonomous navigation in previously unseen environments requires effective perception, persistent
+            environmental representation, and collision avoidance while maintaining progress toward a goal. Existing
+            perception-based methods often rely on prior maps or short-horizon observations, limiting their ability to
+            exploit previously observed structure. We propose a memory-aware multi-sensor navigation framework that
+            integrates LiDAR and RGB perception, online distance-field representation learning, and a stage-adaptive
+            Modulated Control Barrier Function Quadratic Program (MCBF-QP). The framework persistently represents static
+            infrastructure while tracking dynamic obstacles, enabling the MCBF-QP controller to exploit previously
+            observed geometry for obstacle circumvention and adapt its safety constraints and guidance to local
+            conditions. Experiments in complex indoor and outdoor environments demonstrate improved navigation
+            efficiency and goal-reaching performance while maintaining collision avoidance in narrow passages and around
+            dynamic obstacles.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contributions -->
+    <section class="section subtle-gray" id="contributions">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3">Contributions</h2>
+        <div class="content">
+          <ol>
+            <li>
+              We propose a multi-sensor perception and navigation framework for autonomous navigation in complex,
+              unknown, and unstructured indoor environments.
+            </li>
+            <li>
+              We develop an online distance-field-based environmental representation that persistently captures static
+              infrastructure while distinguishing dynamic obstacles, without requiring an offline map.
+            </li>
+            <li>
+              We integrate the persistent representation with an MCBF-QP-based controller to exploit previously
+              observed environmental structure for obstacle circumvention, and demonstrate improved mapless navigation
+              efficiency and goal-reaching performance in dynamic environments.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method -->
+    <section class="section" id="method">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            As shown in Fig.&nbsp;1, the proposed navigation framework integrates onboard state estimation,
+            multi-sensory
+            perception, online environment representation learning, and stage-adaptive MCBF control to enable collision
+            avoidance and enhance navigation liveness in previously unmapped environments. Onboard state estimation
+            establishes a persistent reference frame, while multi-sensory perception identifies dynamic obstacles and
+            environment geometry from LiDAR and RGB observations. The resulting environmental observations are
+            incorporated into an online-learned distance-field representation, which enables the MCBF controller to
+            enforce collision-avoidance constraints and generate obstacle-circumventing guidance. The controller further
+            adapts its CBF constraints and geodesic guidance to the local navigation condition—dynamic obstacles, narrow
+            passages, and open space.
+          </p>
+          <ul>
+            <li><strong>Perception:</strong> 360° LiDAR point clouds + multi-view RGB human detection.</li>
+            <li><strong>Memory:</strong> Persistent occupancy of static infrastructure; dynamic agents tracked
+              separately.</li>
+            <li><strong>Control:</strong> Stage-adaptive on-manifold MCBF-QP with individual barrier constraints per
+              obstacle cluster.</li>
+          </ul>
+        </div>
+        <figure class="has-text-centered" style="margin-top:1.5rem;">
+          <img src="static/images/fig1_overview.png"
+            alt="Pipeline overview of memory-aware multi-sensory perception and navigation" loading="lazy"
+            class="paper-figure"
+            style="width:100%; max-width:900px; max-height:480px; height:auto; object-fit:contain;" />
+          <figcaption class="figure-caption">
+            <strong>Figure 1.</strong> Overview of the proposed memory-aware multi-sensory perception and navigation
+            framework (same as above).
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Simulation -->
+    <section class="section subtle-gray" id="simulation">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3">Simulation Experiments</h2>
+        <div class="content has-text-justified">
+          <p>
+            Two simulated environments are adapted from the AWS RoboMaker Warehouse World and Hospital World. The robot
+            is a Freight differential-drive base equipped with a 360° 3D LiDAR and four RGB cameras (each 90° FOV) for
+            full 360° visual coverage. Six navigation scenarios are defined in the hospital environment and two in the
+            smaller warehouse environment, with 20 and 3 human actors as dynamic obstacles per trial, respectively.
+            Each scenario specifies fixed start and goal poses; each human follows an independently designed waypoint
+            sequence without reacting to the robot and is initialized at a random position along its trajectory. Each
+            scenario is repeated five times for each baseline method.
+          </p>
+          <p><strong>Baselines:</strong></p>
+          <ul>
+            <li><strong>Adaptive CBF</strong> — ablation with the same perception/adaptation pipeline but standard
+              CBF-QP.</li>
+            <li><strong>CE-CBF</strong> — GP local obstacles + circulation constraint (memory-unaware).</li>
+            <li><strong>MPC-CBF</strong> — LiDAR clustered into ellipses for MPC-CBF.</li>
+            <li><strong>DWA</strong> — Dynamic Window Approach on a ray-traced occupancy map.</li>
+          </ul>
+        </div>
+        <figure style="margin-top:1.25rem;">
+          <div class="columns is-variable is-3 is-mobile is-multiline is-vcentered">
+            <div class="column is-6-tablet is-6-desktop">
+              <img src="static/images/fig2_hospital.png" alt="Hospital simulation scenarios overlay" loading="lazy"
+                class="paper-figure"
+                style="width:100%; max-width:100%; max-height:420px; height:auto; object-fit:contain;" />
+            </div>
+            <div class="column is-6-tablet is-6-desktop">
+              <img src="static/images/fig2_warehouse.jpg" alt="Warehouse simulation scenarios overlay" loading="lazy"
+                class="paper-figure"
+                style="width:100%; max-width:100%; max-height:420px; height:auto; object-fit:contain;" />
+            </div>
+          </div>
+          <figcaption class="figure-caption has-text-centered">
+            <strong>Figure 2.</strong> Hospital (left) and warehouse (right) simulation.
+          </figcaption>
+        </figure>
+        <figure class="has-text-centered" style="margin-top:1.5rem;">
+          <img src="static/images/fig3_trajectories.png"
+            alt="Representative navigation trajectories in hospital Scenario 6" loading="lazy" class="paper-figure"
+            style="width:100%; max-width:900px; max-height:520px; height:auto; object-fit:contain;" />
+          <figcaption class="figure-caption">
+            <strong>Figure 3.</strong> Representative navigation trajectories of the evaluated controllers in
+            Scenario&nbsp;6
+            of the hospital environment.
+          </figcaption>
+        </figure>
+        <p class="is-size-7 has-text-grey has-text-centered" style="margin-top:0.75rem;">
+          Simulation clips are included in the <a href="#demo">demo video</a> above.
+        </p>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section" id="results">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3">Results Summary</h2>
+        <p class="has-text-justified" style="margin-bottom:1.25rem;">
+          Table&nbsp;I compares the memory-aware perception-based MCBF, its ablated CBF variant, and baselines in
+          target-reaching success rate, collision rate per human encountered, and trajectory tortuosity. Adaptive MCBF
+          is the only method to reach <strong>100% success</strong> across all scenarios. Across the baselines, dynamic
+          obstacles can further push the robot away from the target, resulting in long detours and high trajectory
+          tortuosity even when the target is reached (Fig.&nbsp;3). The proposed method combines persistent
+          infrastructure
+          mapping of explored regions with a modified MCBF-QP that uses the perceived environment to adapt the guiding
+          direction and parameters, enabling efficient convergence toward the target.
+        </p>
+
+        <div class="columns is-multiline is-variable is-4" style="margin-bottom:1.5rem;">
+          <div class="column is-3-desktop is-6-tablet">
+            <div class="results-card has-text-centered">
+              <div class="metric">100%</div>
+              <div class="metric-label">Ours success rate</div>
+            </div>
+          </div>
+          <div class="column is-3-desktop is-6-tablet">
+            <div class="results-card has-text-centered">
+              <div class="metric">8.4%</div>
+              <div class="metric-label">Collisions / encounters<br>(18 / 215)</div>
+            </div>
+          </div>
+          <div class="column is-3-desktop is-6-tablet">
+            <div class="results-card has-text-centered">
+              <div class="metric">2.17</div>
+              <div class="metric-label">Mean tortuosity</div>
+            </div>
+          </div>
+          <div class="column is-3-desktop is-6-tablet">
+            <div class="results-card has-text-centered">
+              <div class="metric">8</div>
+              <div class="metric-label">Scenarios × 5 trials</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="results-table" aria-label="Table I summary comparison">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Success %</th>
+                <th>Coll. / Enc. (%)</th>
+                <th>Tortuosity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="ours">
+                <td>Adaptive MCBF (Ours)</td>
+                <td>100.0</td>
+                <td>18/215 (8.4)</td>
+                <td>2.17</td>
+              </tr>
+              <tr>
+                <td>Adaptive CBF</td>
+                <td>37.5</td>
+                <td>24/283 (8.5)</td>
+                <td>20.30</td>
+              </tr>
+              <tr>
+                <td>CE-CBF</td>
+                <td>12.5</td>
+                <td>20/254 (7.9)</td>
+                <td>34.52</td>
+              </tr>
+              <tr>
+                <td>MPC-CBF</td>
+                <td>0.0</td>
+                <td>10/63 (15.9)</td>
+                <td>1.12<sup>†</sup></td>
+              </tr>
+              <tr>
+                <td>DWA</td>
+                <td>55.0</td>
+                <td>9/142 (6.4)</td>
+                <td>1.73</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="is-size-7 has-text-grey" style="margin-top:0.75rem;">
+          <sup>†</sup> MPC-CBF was infeasible at the initial position; tortuosity is undefined.
+          Full per-scenario numbers appear in Table&nbsp;I of the paper PDF.
+        </p>
+      </div>
+    </section>
+
+    <!-- Hardware -->
+    <section class="section subtle-gray" id="hardware">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3">Hardware Experiments</h2>
+        <div class="content has-text-justified">
+          <p>
+            The full pipeline runs onboard a <strong>Scout 2.0</strong> skid-steer base with a rear-mounted
+            <strong>SICK multiScan136</strong> 3D LiDAR, a front-mounted <strong>Intel RealSense D435</strong> RGB-D
+            camera for near-field depth, a rear-mounted <strong>Logitech C920</strong> RGB camera for human detection,
+            and an <strong>NVIDIA Jetson AGX Orin</strong> computer. Extrinsics are rigidly calibrated.
+          </p>
+          <p>
+            We qualitatively evaluated the complete system in two previously unmapped real-world environments. The
+            indoor lobby and outdoor courtyard both contain narrow passages, concave structures, moving pedestrians,
+            sloped terrain, and irregular structures or vegetation. In both environments, the robot constructed the
+            occupancy map and distance fields online and successfully reached the goal, demonstrating end-to-end
+            feasibility using only onboard sensing and computation.
+          </p>
+        </div>
+        <figure style="margin-top:1.25rem;">
+          <div class="columns is-variable is-3 is-mobile is-multiline is-vcentered">
+            <div class="column is-6-tablet is-6-desktop">
+              <img src="static/images/fig4_indoor.png" alt="Indoor hardware trajectory and occupancy map" loading="lazy"
+                class="paper-figure"
+                style="width:100%; max-width:100%; max-height:420px; height:auto; object-fit:contain;" />
+            </div>
+            <div class="column is-6-tablet is-6-desktop">
+              <img src="static/images/fig4_outdoor.png" alt="Outdoor hardware trajectory and occupancy map"
+                loading="lazy" class="paper-figure"
+                style="width:100%; max-width:100%; max-height:420px; height:auto; object-fit:contain;" />
+            </div>
+          </div>
+          <figcaption class="figure-caption has-text-centered">
+            <strong>Figure 4.</strong> Robot trajectories and online occupancy maps for indoor (left) and outdoor
+            (right)
+            hardware experiments.
+          </figcaption>
+        </figure>
+        <p class="is-size-7 has-text-grey has-text-centered" style="margin-top:0.75rem;">
+          Hardware indoor/outdoor clips are included in the <a href="#demo">demo video</a> above.
+        </p>
+      </div>
+    </section>
+
+    <!-- BibTeX -->
+    <section class="section" id="bibtex">
+      <div class="container is-max-desktop content">
+        <div class="bibtex-header">
+          <h2 class="title">BibTeX</h2>
+          <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard" type="button">
+            <i class="fas fa-copy"></i>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex-code"><code>@misc{anonymous2026memoryaware,
+  title={Memory-Aware Multi-Sensor Perception for Efficient and Safe Navigation in Dynamic Environments},
+  author={Anonymous Authors},
+  year={2026},
+  note={Under Review}
+}</code></pre>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              Built with a static academic layout inspired by the
+              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank"
+                rel="noopener">Academic Project Page Template</a>
+              (adapted from <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a>).
+              Licensed under
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC
+                BY-SA 4.0</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
